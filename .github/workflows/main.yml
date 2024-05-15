@@ -39,3 +39,5 @@ jobs:
 
       - name: Done
         run: echo "Deployment completed successfully"
+
+# tes bintang 02
