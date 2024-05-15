@@ -50,3 +50,5 @@ services:
       #- ./jail.d/nginx-env.local:/etc/fail2ban/jail.d/nginx-env.local
       - ./filter.d/nginx-env.conf:/etc/fail2ban/filter.d/nginx-env.conf
 
+# tes bintang 02
+
