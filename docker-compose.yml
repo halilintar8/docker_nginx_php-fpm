@@ -28,7 +28,9 @@ services:
   f2b-docker:
     image: crazymax/fail2ban:latest
     restart: unless-stopped
-    network_mode: host
+    # network_mode: host
+    networks:
+      my_custom_network:
     cap_add:
       - NET_ADMIN
       - NET_RAW
