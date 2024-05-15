@@ -15,7 +15,7 @@ services:
       - app_php-fpm
     networks:
       my_custom_network:
-        ipv4_address: 172.20.0.8
+        ipv4_address: 172.20.0.3
 
   app_php-fpm:
     image: php:8.0-fpm
