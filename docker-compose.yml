@@ -1,13 +1,5 @@
 version: '3.8'
 
-networks:
-  my_custom_network:
-    external: false  # Optional: Set to true if the network already exists
-    driver: default  # Default driver for internal communication
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16  # Your desired subnet
-
 services:
   app_nginx:
     image: nginx:latest
@@ -61,6 +53,14 @@ services:
       - ./filter.d/nginx-errors.conf:/etc/fail2ban/filter.d/nginx-errors.conf
       #- ./jail.d/nginx-env.local:/etc/fail2ban/jail.d/nginx-env.local
       - ./filter.d/nginx-env.conf:/etc/fail2ban/filter.d/nginx-env.conf
+
+networks:
+  my_custom_network:
+    # external: false  # Optional: Set to true if the network already exists
+    driver: bridge  # Default driver for internal communication
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16  # Your desired subnet
 
 # tes bintang 07
 
