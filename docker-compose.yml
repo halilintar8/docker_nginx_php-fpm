@@ -1,12 +1,12 @@
 version: '3.8'
 
 networks:
-  my_custom_network:
+  default:  # Use the network's name here
     driver: bridge
-    ipam:
-      driver: default
+    external:
+      name: my_network
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.20.0.0/16  
 
 services:
   app_nginx:
