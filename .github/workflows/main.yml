@@ -15,6 +15,9 @@ jobs:
 
       - name: Install SSH client
         run: sudo apt-get install -y openssh-client
+      
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
 
       - name: SSH into server and update repository
         run: |
