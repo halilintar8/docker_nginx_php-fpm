@@ -3,7 +3,7 @@ version: '3.8'
 networks:
   my_custom_network:
     external: false  # Optional: Set to true if the network already exists
-    driver: bridge  # Default driver for internal communication
+    driver: default  # Default driver for internal communication
     ipam:
       config:
         - subnet: 172.20.0.0/16  # Your desired subnet
