@@ -2,11 +2,10 @@ version: '3.8'
 
 networks:
   default:  # Use the network's name here
-    driver: bridge
-    external:
-      name: my_network
-      config:
-        - subnet: 172.20.0.0/16  
+    driver: bridge    
+    name: my_network
+    config:
+      - subnet: 172.20.0.0/16  
 
 services:
   app_nginx:
