@@ -21,6 +21,9 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Change SSH_AUTH_SOCK permissions
+        run: chmod 600 $SSH_AUTH_SOCK
+
       - name: SSH into server and update repository
         run: |
           ssh ecustomer@36.50.217.162 "cd docker_nginx_php-fpm/ && git pull https://github.com/halilintar8/docker_nginx_php-fpm.git"
@@ -36,5 +39,3 @@ jobs:
 
       - name: Done
         run: echo "Deployment completed successfully"
-
-# tes bintang
