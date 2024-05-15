@@ -15,7 +15,7 @@ services:
       - app_php-fpm
     networks:
       my_custom_network:
-        # ipv4_address: 172.20.0.3
+        ipv4_address: 172.20.0.4
 
   app_php-fpm:
     image: php:8.0-fpm
@@ -28,9 +28,9 @@ services:
   f2b-docker:
     image: crazymax/fail2ban:latest
     restart: unless-stopped
-    network_mode: host
-    # networks:
-    #   my_custom_network:
+    # network_mode: host
+    networks:
+      my_custom_network:
     cap_add:
       - NET_ADMIN
       - NET_RAW
