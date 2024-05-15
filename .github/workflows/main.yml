@@ -32,10 +32,15 @@ jobs:
       # - name: Change SSH_AUTH_SOCK permissions
       #   run: chmod 600 $SSH_AUTH_SOCK
 
+      # repo = 'https://github.com/halilintar8/docker_nginx_php-fpm.git'
+      # ssh ecustomer@36.50.217.162 "cd docker_nginx_php-fpm/ && git pull $repo"
+      # ssh ecustomer@36.50.217.162 "cd docker_nginx_php-fpm/ && git pull https://github.com/halilintar8/docker_nginx_php-fpm.git"
+
       - name: SSH into server and update repository
         run: |
-          ssh ecustomer@36.50.217.162 "cd docker_nginx_php-fpm/ && git pull https://github.com/halilintar8/docker_nginx_php-fpm.git"
-
+          git fetch --all
+          git pull origin main --rebase                    
+          
       - name: Docker-compose down
         # run: sshpass -p ${{ secrets.SSH_PASSWORD }} ssh ecustomer@36.50.217.162 "cd docker_nginx_php-fpm/ && docker-compose down"
         run: docker-compose down
