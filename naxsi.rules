@@ -1,0 +1,6 @@
+# Check if the request URI contains SQL injection patterns
+SecRule REQUEST_URI "@detectSQLi" "id:1000,log,msg:'SQL injection attack detected'"
+
+# Check if the request parameters contain XSS patterns
+SecRule ARGS "@detectXSS" "id:1001,log,msg:'XSS attack detected'"
+

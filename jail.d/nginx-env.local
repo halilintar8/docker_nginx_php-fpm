@@ -1,0 +1,7 @@
+[nginx-env]
+enabled = true
+port = http,https
+filter = nginx-env
+logpath = /var/log/nginx/access.log
+maxretry = 1
+
