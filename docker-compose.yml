@@ -65,5 +65,5 @@ networks:
       config:
         - subnet: 172.20.0.0/16  # Your desired subnet
 
-# tes bintang 07
+# tes bintang 08
 
