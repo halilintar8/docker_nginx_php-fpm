@@ -4,7 +4,6 @@ services:
   app_nginx:
     image: nginx:latest
     container_name: app_nginx
-    network_mode: default
     ports:
       - "8081:80"
       - "8443:443"
@@ -16,27 +15,23 @@ services:
     depends_on:
       - app_php-fpm
     # networks:
-    #   # my_custom_network:
-    #   nginx-proxy-manager_default:
-    #     ipv4_address: 172.23.0.4
+    #   my_custom_network:
+    #     # ipv4_address: 172.20.0.4
 
   app_php-fpm:
     image: php:8.0-fpm
     container_name: app_php-fpm
-    network_mode: default
     volumes:
       - ./www:/var/www/html
     # networks:
-    #   # my_custom_network:
-    #   nginx-proxy-manager_default:
-    #     ipv4_address: 172.23.0.3
+    #   my_custom_network:
 
   f2b-docker:
     image: crazymax/fail2ban:latest
     restart: unless-stopped
-    network_mode: host
-    # # networks:
-    # #   my_custom_network:
+    # network_mode: host
+    # networks:
+    #   my_custom_network:
     cap_add:
       - NET_ADMIN
       - NET_RAW
@@ -62,10 +57,6 @@ services:
       - ./filter.d/nginx-errors.conf:/etc/fail2ban/filter.d/nginx-errors.conf
       #- ./jail.d/nginx-env.local:/etc/fail2ban/jail.d/nginx-env.local
       - ./filter.d/nginx-env.conf:/etc/fail2ban/filter.d/nginx-env.conf
-    # networks:
-    #   # my_custom_network:
-    #   nginx-proxy-manager_default:
-    #     ipv4_address: 172.23.0.5
 
 # networks:
 #   my_custom_network:
