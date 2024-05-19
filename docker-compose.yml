@@ -63,6 +63,7 @@ services:
       - ./filter.d/nginx-errors.conf:/etc/fail2ban/filter.d/nginx-errors.conf
       #- ./jail.d/nginx-env.local:/etc/fail2ban/jail.d/nginx-env.local
       - ./filter.d/nginx-env.conf:/etc/fail2ban/filter.d/nginx-env.conf
+      - ./jail.d/jail.local:/etc/fail2ban/jail.local
     networks:
       - docker_nginx_php-fpm_default
       - nginx-proxy-manager_default
