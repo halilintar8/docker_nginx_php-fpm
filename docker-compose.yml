@@ -66,5 +66,12 @@ services:
 #       config:
 #         - subnet: 172.20.0.0/16  # Your desired subnet
 
+networks:
+  docker_nginx_php-fpm_default:
+    external: true
+  nginx-proxy-manager_default:
+    external: true
+
+    
 # tes bintang 08
 
