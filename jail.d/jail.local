@@ -1,3 +1,21 @@
 [DEFAULT]
 # Whitelist IPs and Subnets
 ignoreip = 127.0.0.1/8 ::1 172.23.0.0/16
+bantime  = 600
+findtime  = 600
+maxretry = 5
+backend = auto
+
+[http]
+enabled = true
+port = http,https
+filter = http
+logpath = /path/to/http/logs
+
+[ssh]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+
+
