@@ -26,7 +26,7 @@ services:
         ipv4_address: 172.20.0.4
       internal:
         # No need to specify IPv4 address for internal network
-        
+
   app_php-fpm:
     image: php:8.0-fpm
     restart: unless-stopped
@@ -39,8 +39,8 @@ services:
     #   - docker_nginx_php-fpm_default
     #   - nginx-proxy-manager_default
     networks:
-      web:
-      internal:
+      - web
+      - internal
 
   f2b-docker:
     image: crazymax/fail2ban:latest
@@ -78,8 +78,8 @@ services:
     #   - docker_nginx_php-fpm_default
     #   - nginx-proxy-manager_default
     networks:
-      web:
-      internal:
+      - web
+      - internal
 
 # networks:
 #   my_custom_network:
@@ -97,12 +97,15 @@ services:
 
 networks:
   web:
-    external: true
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
   internal:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.20.0.0/16  # Your desired subnet
+        - subnet: 172.21.0.0/16
 
 # tes bintang 08
 
