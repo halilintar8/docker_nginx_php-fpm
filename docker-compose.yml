@@ -3,6 +3,8 @@ version: '3.8'
 services:
   app_nginx:
     image: nginx:latest
+    restart: on-failure:5
+    # restart: always
     container_name: app_nginx
     ports:
       - "8081:80"
@@ -23,6 +25,7 @@ services:
 
   app_php-fpm:
     image: php:8.0-fpm
+    restart: on-failure:5
     container_name: app_php-fpm
     volumes:
       - ./www:/var/www/html
